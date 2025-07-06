@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEXTRIP - Revolutionizing Travel Flexibility</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Page Sections */
+        .page {
+            display: none;
+            padding: 100px 0 50px;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .feature-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .content-block {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .content-block h3 {
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4ecdc4;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Use Cases List */
+        .use-cases-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .use-case-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #4ecdc4;
+            transition: all 0.3s ease;
+        }
+
+        .use-case-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .use-case-item h4 {
+            color: #4ecdc4;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .use-case-item p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="javascript:void(0)" class="logo">FLEXTRIP</a>
+                <ul class="nav-links">
+                    <li><a href="javascript:void(0)" onclick="showPage('home')">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="showPage('tokenomics')">Tokenomics</a></li>
+                    <li><a href="javascript:void(0)" onclick="showPage('roadmap')">Roadmap</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <div class="container">
+            <div class="hero animate-fade-in">
+                <h1>FLEXTRIP</h1>
+                <p>The utility token revolutionizing travel flexibility. Modify your travel packages without losing discounts or starting over.</p>
+                <a href="javascript:void(0)" class="cta-button" onclick="showPage('tokenomics')">Explore Token Economics</a>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card animate-fade-in">
+                    <h3>🏨 Smart Package Modification</h3>
+                    <p>Change your hotel, flight, or activities without losing your package discount. Our smart contracts maintain your benefits even when you modify components.</p>
+                </div>
+                <div class="feature-card animate-fade-in">
+                    <h3>🛡️ Flex Insurance</h3>
+                    <p>Pay small FLEXTRIP premiums to guarantee changeable terms. Travel with confidence knowing you can adapt your plans without penalties.</p>
+                </div>
+                <div class="feature-card animate-fade-in">
+                    <h3>💰 Earn While You Travel</h3>
+                    <p>Get rewarded with FLEXTRIP tokens for booking with flexible partners and using adaptable travel packages. The more flexible, the more you earn.</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>The Problem We're Solving</h3>
+                <p>Traditional travel booking systems are rigid and punitive. Change a hotel in your package? Lose your discount. Cancel one component? Start over entirely. FLEXTRIP creates a decentralized framework where flexibility is rewarded, not penalized.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">500M</span>
+                    <span class="stat-label">Total Token Supply</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">PoS</span>
+                    <span class="stat-label">Consensus Mechanism</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">Polygon</span>
+                    <span class="stat-label">Blockchain Platform</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">Low Gas</span>
+                    <span class="stat-label">Transaction Costs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOKENOMICS PAGE -->
+    <div id="tokenomics" class="page">
+        <div class="container">
+            <h2 class="section-title">Token Economics</h2>
+            
+            <div class="content-block">
+                <h3>Total Supply: 500 Million FLEXTRIP Tokens</h3>
+                <p>Our token distribution is designed to incentivize both consumers and travel providers while ensuring sustainable platform development.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">40%</span>
+                    <span class="stat-label">Consumer Rewards & Staking</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">20%</span>
+                    <span class="stat-label">Travel Partner Incentives</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">20%</span>
+                    <span class="stat-label">Platform Development</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">10%</span>
+                    <span class="stat-label">Insurance Pool</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">10%</span>
+                    <span class="stat-label">Founders/Team (Vested)</span>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Token Use Cases</h3>
+                <div class="use-cases-list">
+                    <div class="use-case-item">
+                        <h4>Staking for Flexibility</h4>
+                        <p>Stake tokens when booking to unlock the ability to modify package components without losing benefits or discounts.</p>
+                    </div>
+                    <div class="use-case-item">
+                        <h4>Flex Insurance</h4>
+                        <p>Pay small FLEXTRIP premiums to guarantee changeable terms and protect against rigid booking policies.</p>
+                    </div>
+                    <div class="use-case-item">
+                        <h4>Incentivized Booking</h4>
+                        <p>Earn tokens for using eligible partners or choosing flexible travel packages over rigid alternatives.</p>
+                    </div>
+                    <div class="use-case-item">
+                        <h4>Smart Package Splitting</h4>
+                        <p>Smart contracts automatically retain your benefits when you partially cancel or change package elements.</p>
+                    </div>
+                    <div class="use-case-item">
+                        <h4>Platform Rewards</h4>
+                        <p>Travel providers receive FLEXTRIP tokens for offering flexible, consumer-friendly booking terms.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Technology Stack</h3>
+                <p><strong>Blockchain:</strong> Polygon - Fast transactions, low gas fees, Ethereum compatibility</p>
+                <p><strong>Consensus:</strong> Proof-of-Stake (PoS) - Energy efficient, scalable, ideal for consumer applications</p>
+                <p><strong>Smart Contracts:</strong> Ethereum-compatible contracts for booking flexibility and benefit retention</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ROADMAP PAGE -->
+    <div id="roadmap" class="page">
+        <div class="container">
+            <h2 class="section-title">Roadmap & Vision</h2>
+            
+            <div class="content-block">
+                <h3>Phase 1: Foundation (Q1-Q2 2024)</h3>
+                <p>Initial rollout through Web3 travel platforms like Travala. Launch basic staking and flexibility features with select travel partners.</p>
+            </div>
+
+            <div class="content-block">
+                <h3>Phase 2: Expansion (Q3-Q4 2024)</h3>
+                <p>Integrate with major OTAs and travel providers. Launch referral and loyalty programs to drive adoption across traditional travel booking platforms.</p>
+            </div>
+
+            <div class="content-block">
+                <h3>Phase 3: Ecosystem (2025)</h3>
+                <p>Build comprehensive DeFi travel ecosystem with advanced insurance products, cross-platform compatibility, and industry-wide flexibility standards.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🎯 Our Mission</h3>
+                    <p>Create network pressure on rigid booking systems by rewarding flexibility. Make travel booking more consumer-friendly through decentralized incentives.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚖️ Legal Framework</h3>
+                    <p>Designed as a utility token with clear use cases in travel flexibility. Not positioned as a financial investment but as a functional tool for better travel experiences.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌐 Network Effects</h3>
+                    <p>As more consumers demand flexibility, travel providers will compete on FLEXTRIP-compatible terms, creating a positive feedback loop for the entire industry.</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Join the Movement</h3>
+                <p>FLEXTRIP isn't just a token - it's a movement toward fairer, more flexible travel booking. By participating in our ecosystem, you're helping create a future where travelers have real control over their journeys.</p>
+            </div>
+
+            <div class="content-block">
+                <h3>Incentive Structure</h3>
+                <p>Our token economics create powerful incentives for both sides of the travel market:</p>
+                <p><strong>For Consumers:</strong> Earn tokens for choosing flexible options, stake for modification rights, and pay small premiums for guaranteed flexibility.</p>
+                <p><strong>For Providers:</strong> Receive token rewards for offering flexible terms, tap into a growing market of flexibility-conscious travelers, and differentiate from rigid competitors.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.style.background = 'none');
+            
+            // Highlight current nav item
+            const currentLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (currentLink) {
+                currentLink.style.background = 'rgba(255, 255, 255, 0.2)';
+            }
+        }
+
+        // Add smooth scroll behavior and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation classes to elements as they come into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards and content blocks
+            document.querySelectorAll('.feature-card, .content-block, .stat-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
