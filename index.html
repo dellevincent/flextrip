@@ -60,20 +60,20 @@
             gap: 2rem;
         }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-        }
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                cursor: pointer;
+            }
 
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
+                .nav-links a:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: translateY(-2px);
+                }
 
         /* Page Sections */
         .page {
@@ -82,9 +82,9 @@
             min-height: 100vh;
         }
 
-        .page.active {
-            display: block;
-        }
+            .page.active {
+                display: block;
+            }
 
         /* Hero Section */
         .hero {
@@ -93,21 +93,21 @@
             color: white;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+            .hero h1 {
+                font-size: 3.5rem;
+                margin-bottom: 1rem;
+                font-weight: 700;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+            .hero p {
+                font-size: 1.3rem;
+                margin-bottom: 2rem;
+                opacity: 0.9;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
         .cta-button {
             display: inline-block;
@@ -122,10 +122,10 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
+            .cta-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            }
 
         /* Cards */
         .features-grid {
@@ -145,21 +145,21 @@
             color: white;
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-        }
+            .feature-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            }
 
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #4ecdc4;
-        }
+            .feature-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                color: #4ecdc4;
+            }
 
-        .feature-card p {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
+            .feature-card p {
+                opacity: 0.9;
+                line-height: 1.6;
+            }
 
         /* Section Styles */
         .section-title {
@@ -180,11 +180,11 @@
             color: white;
         }
 
-        .content-block h3 {
-            color: #4ecdc4;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
+            .content-block h3 {
+                color: #4ecdc4;
+                margin-bottom: 1rem;
+                font-size: 1.4rem;
+            }
 
         .stats-grid {
             display: grid;
@@ -241,6 +241,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -267,21 +268,21 @@
             transition: all 0.3s ease;
         }
 
-        .use-case-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
-        }
+            .use-case-item:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: translateX(5px);
+            }
 
-        .use-case-item h4 {
-            color: #4ecdc4;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
+            .use-case-item h4 {
+                color: #4ecdc4;
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+            }
 
-        .use-case-item p {
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
+            .use-case-item p {
+                opacity: 0.9;
+                font-size: 0.95rem;
+            }
     </style>
 </head>
 <body>
@@ -293,6 +294,7 @@
                     <li><a href="javascript:void(0)" onclick="showPage('home')">Home</a></li>
                     <li><a href="javascript:void(0)" onclick="showPage('tokenomics')">Tokenomics</a></li>
                     <li><a href="javascript:void(0)" onclick="showPage('roadmap')">Roadmap</a></li>
+                    <li><a href="javascript:void(0)" onclick="showPage('about')">About Me</a></li>
                 </ul>
             </div>
         </div>
@@ -352,7 +354,7 @@
     <div id="tokenomics" class="page">
         <div class="container">
             <h2 class="section-title">Token Economics</h2>
-            
+
             <div class="content-block">
                 <h3>Total Supply: 500 Million FLEXTRIP Tokens</h3>
                 <p>Our token distribution is designed to incentivize both consumers and travel providers while ensuring sustainable platform development.</p>
@@ -420,7 +422,7 @@
     <div id="roadmap" class="page">
         <div class="container">
             <h2 class="section-title">Roadmap & Vision</h2>
-            
+
             <div class="content-block">
                 <h3>Phase 1: Foundation (Q1-Q2 2024)</h3>
                 <p>Initial rollout through Web3 travel platforms like Travala. Launch basic staking and flexibility features with select travel partners.</p>
@@ -465,19 +467,42 @@
         </div>
     </div>
 
+    <!-- About Me PAGE -->
+    <div id="about" class="page">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Biography</h3>
+                    <li>Author: Vincent Delle</li>
+                    <li>Origin: Ghana</li>
+                    <li>Locality: Williamstown,NJ</li>
+                </div>
+                <div class="feature-card">
+                    <h3>Education & Career</h3>
+                    <p>Bachelors in Computing and Informatics from Rowan. Currently working as a Software Developer for PHA in Philadelphia.</p>
+                 </div>
+                <div class="feature-card">
+                    <img src="/flextrip/IMG_0210.PNG" alt="image" width="305" height="225">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function showPage(pageId) {
             // Hide all pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
-            
+
             // Show selected page
             document.getElementById(pageId).classList.add('active');
-            
+
             // Update navigation
             const navLinks = document.querySelectorAll('.nav-links a');
             navLinks.forEach(link => link.style.background = 'none');
-            
+
             // Highlight current nav item
             const currentLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
             if (currentLink) {
@@ -486,7 +511,7 @@
         }
 
         // Add smooth scroll behavior and animations
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Add animation classes to elements as they come into view
             const observerOptions = {
                 threshold: 0.1,
